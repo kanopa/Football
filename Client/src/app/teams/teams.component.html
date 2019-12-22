@@ -1,16 +1,17 @@
 <div class="wrapper">
     <div class="wrapper-form">
-        <div class="ui calendar" id="example1">
-            <div class="ui input left icon form-record-field">
-                <i class="calendar icon"></i>
-                <input type="text" placeholder="Pick first date" class="form-date">
-            </div>
-        </div>
-        <div class="ui calendar" id="example2">
-            <div class="ui input left icon form-record-field">
-                <i class="calendar icon"></i>
-                <input type="text" placeholder="Pick first date" class="form-date">
-            </div>
+        <h3>Регистрация новой команды</h3>
+        <mat-form-field class="form-field">
+            <input matInput placeholder="Имя комаднды">
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <input matInput placeholder="Город команды">
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <input matInput placeholder="Игроков в команде">
+        </mat-form-field>
+        <div class="form-field">
+            <button mat-raised-button (click)="aaaa()">Отправить</button>
         </div>
         <mat-form-field class="form-field">
             <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">

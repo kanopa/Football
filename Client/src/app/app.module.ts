@@ -15,6 +15,7 @@ import {MatInputModule} from '@angular/material/input';
 import { MatTableModule } from '@angular/material';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatButtonModule} from '@angular/material/button';
 
 
 const appRoutes = [
@@ -39,6 +40,7 @@ const appRoutes = [
     RouterModule.forRoot(
       appRoutes, {enableTracing: true}
     ),
+    MatButtonModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatTableModule,

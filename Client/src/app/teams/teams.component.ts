@@ -34,8 +34,6 @@ export class TeamsComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   ngOnInit() {
-      $('#example1').calendar();
-      $('#example2').calendar();
   }
 
 }
