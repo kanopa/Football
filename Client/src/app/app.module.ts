@@ -13,7 +13,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import { MatTableModule } from '@angular/material';
-
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 const appRoutes = [
@@ -36,8 +37,10 @@ const appRoutes = [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(
-      appRoutes, {enableTracing: false}
+      appRoutes, {enableTracing: true}
     ),
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatTableModule,
     MatInputModule,
     MatSelectModule,
