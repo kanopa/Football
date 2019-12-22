@@ -2,7 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BLL.interfaces;
+using BLL.services;
 using DAL.Context;
+using DAL.Interfaces;
+using DAL.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,9 +31,25 @@ namespace Football
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyMethod()
+                       .AllowAnyHeader()
+                       .AllowCredentials()
+                       .WithOrigins("http://localhost:4200");
+            }));
             string connectionString = Configuration["ConnectionStrings:ConnectionLocal"];
 
-            services.AddDbContext<FootballContext>(options => options.UseSqlServer(connectionString), ServiceLifetime.Scoped);
+            services.AddDbContext<FootballContext>(options =>
+            options.UseSqlServer(connectionString), ServiceLifetime.Scoped);
+
+            services.AddScoped<IPlayerRepository, PlayerRepository>();
+            services.AddScoped<ITeamRepository, TeamRepository>();
+            services.AddScoped<IStadiumRepository, StadiumRepository>();
+
+            services.AddScoped<IPlayerService, PlayerService>();
+            services.AddScoped<ITeamService, TeamService>();
+            services.AddScoped<IStadiumService, StadiumService>();
 
 
             services.AddControllers();
@@ -42,6 +62,8 @@ namespace Football
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("MyPolicy");
 
             app.UseHttpsRedirection();
 

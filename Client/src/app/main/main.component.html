@@ -58,14 +58,10 @@
             <p>Команды</p>
         </div>
         <ul class="teams">
-            <li class="team-component"><span>Name Team</span>
-                <span>Country</span></li>
-            <li class="team-component"><span>Name Team</span>
-                <span>Country</span></li>
-            <li class="team-component"><span>Name Team</span>
-                <span>Country</span></li>
-            <li class="team-component"><span>Name Team</span>
-                <span>Country</span></li>
+            <li class="team-component" *ngFor="let team of teams">
+                <span>{{team.name}}</span>
+                <span>{{team.city}}</span>
+            </li>
         </ul>
     </div>
 </div>

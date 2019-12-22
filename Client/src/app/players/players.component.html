@@ -2,36 +2,39 @@
     <div class="wrapper-form">
         <h3>Все игроки</h3>
         <mat-form-field class="form-field">
-            <mat-label>Team</mat-label>
-            <mat-select>
-                <mat-option *ngFor="let team of teams" [value]="teams.value">
-                    {{team.Name}}
+            <mat-select placeholder = "Выберете команду">
+                <mat-option *ngFor="let team of teams" [value]="team.name">
+                    {{team.name}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
         <mat-form-field class="form-field">
-            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Поиск">
         </mat-form-field>
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
             <!-- Position Column -->
             <ng-container matColumnDef="Id">
                 <th mat-header-cell *matHeaderCellDef> Id </th>
-                <td mat-cell *matCellDef="let element"> {{element.Id}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+            <ng-container matColumnDef="TeamId">
+                <th mat-header-cell *matHeaderCellDef> TeamId </th>
+                <td mat-cell *matCellDef="let element"> {{element.teamId}} </td>
             </ng-container>
             <!-- Name Column -->
-            <ng-container matColumnDef="FullName">
+            <ng-container matColumnDef="Name">
                 <th mat-header-cell *matHeaderCellDef> Full Name </th>
-                <td mat-cell *matCellDef="let element"> {{element.FullName}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.fullName}} </td>
             </ng-container>
             <!-- Weight Column -->
             <ng-container matColumnDef="Born">
                 <th mat-header-cell *matHeaderCellDef> Born </th>
-                <td mat-cell *matCellDef="let element"> {{element.Born}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.bornDate}} </td>
             </ng-container>
             <!-- Symbol Column -->
             <ng-container matColumnDef="Contract">
                 <th mat-header-cell *matHeaderCellDef> Contract </th>
-                <td mat-cell *matCellDef="let element"> {{element.Contract}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.contractDate}} </td>
             </ng-container>
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

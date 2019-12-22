@@ -4,24 +4,24 @@
         <mat-form-field class="form-field">
             <mat-label>Первая команда</mat-label>
             <mat-select>
-                <mat-option *ngFor="let team of teams" [value]="teams.value">
-                    {{team.Name}}
+                <mat-option *ngFor="let team of teams" [value]="teams.name">
+                    {{team.name}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
         <mat-form-field class="form-field">
             <mat-label>Вторая команда</mat-label>
             <mat-select>
-                <mat-option *ngFor="let team of teams" [value]="teams.value">
-                    {{team.Name}}
+                <mat-option *ngFor="let team of teams" [value]="teams.name">
+                    {{team.name}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
         <mat-form-field class="form-field">
             <mat-label>Стадион</mat-label>
             <mat-select>
-                <mat-option *ngFor="let team of teams" [value]="teams.value">
-                    {{team.Name}}
+                <mat-option *ngFor="let stadium of stadiums" [value]="teams.value">
+                    {{stadium.name}}
                 </mat-option>
             </mat-select>
         </mat-form-field>

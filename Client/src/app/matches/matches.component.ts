@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
+import { Team } from '../models/Team';
+import { TeamService } from '../services/TeamService';
+import { Stadium } from '../models/Stadium';
+import { StadiumService } from '../services/StadiumService';
 
 declare var $: any;
 
@@ -12,11 +16,6 @@ export interface Match {
   Start: string;
   End: string;
 }
-export interface Team {
-  Name: string;
-  City: string;
-  CountPlayers: number;
-}
 
 @Component({
   selector: 'app-matches',
@@ -25,26 +24,20 @@ export interface Team {
 })
 export class MatchesComponent implements OnInit {
 
-  teams: Team[] = [
-    {Name: 'Team-0', City: 'Steak', CountPlayers: 40000},
-    {Name: 'Team-1', City: 'Pizza', CountPlayers: 40000},
-    {Name: 'Team-2', City: 'Tacos', CountPlayers: 40000}
-  ];
-  matches: Match[] = [
-    { Id: 1, TournamentId: 1, TeamId: 1, TeamId2: 2, StadiumId: 2, Start: new Date(2019, 22, 14).toLocaleDateString(),
-      End: new Date(2019, 22, 14).toLocaleDateString()},
-    { Id: 2, TournamentId: 1, TeamId: 3, TeamId2: 4, StadiumId: 1, Start: new Date(2019, 22, 14).toLocaleDateString(),
-      End: new Date(2019, 22, 14).toLocaleDateString()},
-  ];
+  teams: Team[];
+  stadiums: Stadium[];
+  matches: Match[];
   displayedColumns: string[] = ['Id', 'TournamentId', 'TeamId', 'TeamId2', 'StadiumId', 'Start', 'End'];
   dataSource = new MatTableDataSource(this.matches);
-  constructor() { }
+  constructor(private teamService: TeamService, private stadiumService: StadiumService) { }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   ngOnInit() {
     $('#example1').calendar();
     $('#example2').calendar();
+    this.teamService.GetAllTeams().subscribe(x => {this.teams = x.body; console.log(this.teams); });
+    this.stadiumService.GetAllStadium().subscribe(x => {this.stadiums = x.body; console.log(this.stadiums); });
   }
 
 }
