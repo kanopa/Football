@@ -9,6 +9,12 @@ import { PlayersComponent } from './players/players.component';
 import { RouterModule } from '@angular/router';
 import { MainComponent } from './main/main.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSelectModule} from '@angular/material/select';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import { MatTableModule } from '@angular/material';
+
+
 
 const appRoutes = [
   {path: 'mathches', component: MatchesComponent},
@@ -30,8 +36,13 @@ const appRoutes = [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(
-      appRoutes, {enableTracing: true}
+      appRoutes, {enableTracing: false}
     ),
+    MatTableModule,
+    MatInputModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule
   ],
   providers: [],
