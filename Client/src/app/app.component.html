@@ -1,1 +1,20 @@
-<router-outlet></router-outlet>
+<header>
+    <div class="logo-container">
+        <div class="header-logo"></div>
+        <div class="header-text">
+            <p>Украинская премьер-лига по футболу</p>
+        </div>
+    </div>
+</header>
+<nav>
+    <ul class="nav-list">
+        <li class="nav-list-component" routerLink="/main" routerLinkActive="active" [ngClass]="{'active': isCurrentRouteRight('main') }">Главная страница</li>
+        <li class="nav-list-component" routerLink="/mathches" routerLinkActive="active" [ngClass]="{'active': isCurrentRouteRight('mathches') }">Матчи</li>
+        <li class="nav-list-component" routerLink="/teams" routerLinkActive="active" [ngClass]="{'active': isCurrentRouteRight('teams') }">Команды</li>
+        <li class="nav-list-component" routerLink="/players" routerLinkActive="active" [ngClass]="{'active': isCurrentRouteRight('players') }">Игроки</li>
+    </ul>
+</nav>
+
+<main>
+    <router-outlet></router-outlet>
+</main>
