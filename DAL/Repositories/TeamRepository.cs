@@ -28,5 +28,11 @@ namespace DAL.Repositories
         {
             return await db.Teams.ToListAsync();
         }
+
+        public async Task UpdateTeam(Team team)
+        {
+            db.Update(team);
+            await db.SaveChangesAsync();
+        }
     }
 }

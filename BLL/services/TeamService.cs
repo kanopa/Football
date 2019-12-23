@@ -25,5 +25,10 @@ namespace BLL.services
         {
             return await teamRepository.GetTeams();
         }
+
+        public async Task UpdateTeam(Team team)
+        {
+
+        }
     }
 }

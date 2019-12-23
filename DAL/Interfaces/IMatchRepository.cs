@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
-    public interface ITeamRepository
+    public interface IMatchRepository
     {
-        Task<ICollection<Team>> GetTeams();
-        Task<Team> AddTeam(Team team);
-        Task UpdateTeam(Team team);
+        Task<ICollection<Match>> GetMatch();
+        Task<Match> AddMatch(Match match);
     }
 }

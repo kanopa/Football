@@ -83,6 +83,7 @@ namespace DAL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TournamentId = table.Column<int>(nullable: false),
                     TeamId = table.Column<int>(nullable: false),
+                    Team2Id = table.Column<int>(nullable: false),
                     StadiumId = table.Column<int>(nullable: false),
                     Start = table.Column<DateTime>(nullable: false),
                     End = table.Column<DateTime>(nullable: false)

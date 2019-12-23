@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace BLL.interfaces
 {
-    public interface ITeamService
+    public interface IMatchService
     {
-        Task<ICollection<Team>> GetTeams();
-        Task<Team> AddTeam(Team team);
-        Task UpdateTeam(Team team);
+        Task<ICollection<Match>> GetTeams();
+        Task<Match> AddMatch(Match match);
     }
 }

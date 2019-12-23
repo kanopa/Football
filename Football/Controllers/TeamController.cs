@@ -28,5 +28,6 @@ namespace Football.Controllers
         {
             return teamService.AddTeam(team);
         }
+        //[HttpPut]
     }
 }

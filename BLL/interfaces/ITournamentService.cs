@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace BLL.interfaces
 {
-    public interface ITeamService
+    public interface ITournamentService
     {
-        Task<ICollection<Team>> GetTeams();
-        Task<Team> AddTeam(Team team);
-        Task UpdateTeam(Team team);
+        Task<ICollection<Tournament>> GetTournament();
     }
 }

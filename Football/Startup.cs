@@ -46,11 +46,14 @@ namespace Football
             services.AddScoped<IPlayerRepository, PlayerRepository>();
             services.AddScoped<ITeamRepository, TeamRepository>();
             services.AddScoped<IStadiumRepository, StadiumRepository>();
+            services.AddScoped<ITournamentRepository, TournamentRepository>();
+            services.AddScoped<IMatchRepository, MatchRepository>();
 
             services.AddScoped<IPlayerService, PlayerService>();
             services.AddScoped<ITeamService, TeamService>();
             services.AddScoped<IStadiumService, StadiumService>();
-
+            services.AddScoped<ITournamentService, TournamentService>();
+            services.AddScoped<IMatchService, MatchService>();
 
             services.AddControllers();
         }

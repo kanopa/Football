@@ -21,7 +21,7 @@ export class TeamsComponent implements OnInit {
 
   Send() {
     console.log(this.name + this.city + this.count);
-    const team: Team = {id: 0, name: this.name, city: this.city, count: this.count};
+    const team: Team = {id: 0, name: this.name, city: this.city, countPlayers: this.count};
     this.teamService.AddTeam(team).subscribe(x => { });
   }
   applyFilter(filterValue: string) {

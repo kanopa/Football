@@ -2,25 +2,33 @@
     <div class="wrapper-form">
         <h3>Регистрация нового матча</h3>
         <mat-form-field class="form-field">
+            <mat-label>Турнир</mat-label>
+            <mat-select (selectionChange)="PickTournament($event.value)">
+                <mat-option *ngFor="let tournament of tournaments" [value]="tournament.id">
+                    {{tournament.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="form-field">
             <mat-label>Первая команда</mat-label>
-            <mat-select>
-                <mat-option *ngFor="let team of teams" [value]="teams.name">
+            <mat-select (selectionChange)="PickTeam($event.value)">
+                <mat-option *ngFor="let team of teams" [value]="team.id">
                     {{team.name}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
         <mat-form-field class="form-field">
             <mat-label>Вторая команда</mat-label>
-            <mat-select>
-                <mat-option *ngFor="let team of teams" [value]="teams.name">
+            <mat-select (selectionChange)="PickTeamSec($event.value)">
+                <mat-option *ngFor="let team of teams" [value]="team.id">
                     {{team.name}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
         <mat-form-field class="form-field">
             <mat-label>Стадион</mat-label>
-            <mat-select>
-                <mat-option *ngFor="let stadium of stadiums" [value]="teams.value">
+            <mat-select (selectionChange)="PickStadium($event.value)" (click)= "aaa()">
+                <mat-option *ngFor="let stadium of stadiums" [value]="stadium.id">
                     {{stadium.name}}
                 </mat-option>
             </mat-select>
@@ -38,7 +46,7 @@
             </div>
         </div>
         <div class="form-field">
-            <button mat-raised-button (click)="aaaa()">Отправить</button>
+            <button mat-raised-button (click)="Send()">Отправить</button>
         </div>
         <mat-form-field class="form-field">
             <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
@@ -47,33 +55,33 @@
             <!-- Position Column -->
             <ng-container matColumnDef="Id">
                 <th mat-header-cell *matHeaderCellDef> Id </th>
-                <td mat-cell *matCellDef="let element"> {{element.Id}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
             </ng-container>
             <!-- Name Column -->
             <ng-container matColumnDef="TournamentId">
                 <th mat-header-cell *matHeaderCellDef> TournamentId </th>
-                <td mat-cell *matCellDef="let element"> {{element.TournamentId}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.tournamentId}} </td>
             </ng-container>
             <!-- Weight Column -->
             <ng-container matColumnDef="TeamId">
                 <th mat-header-cell *matHeaderCellDef> TeamId </th>
-                <td mat-cell *matCellDef="let element"> {{element.TeamId}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.teamId}} </td>
             </ng-container>
             <ng-container matColumnDef="TeamId2">
                 <th mat-header-cell *matHeaderCellDef> TeamId2 </th>
-                <td mat-cell *matCellDef="let element"> {{element.TeamId2}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.team2Id}} </td>
             </ng-container>
             <ng-container matColumnDef="StadiumId">
                 <th mat-header-cell *matHeaderCellDef> StadiumId </th>
-                <td mat-cell *matCellDef="let element"> {{element.StadiumId}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.stadiumId}} </td>
             </ng-container>
             <ng-container matColumnDef="Start">
                 <th mat-header-cell *matHeaderCellDef> Start </th>
-                <td mat-cell *matCellDef="let element"> {{element.Start}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.start}} </td>
             </ng-container>
             <ng-container matColumnDef="End">
                 <th mat-header-cell *matHeaderCellDef> End </th>
-                <td mat-cell *matCellDef="let element"> {{element.End}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.end}} </td>
             </ng-container>
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

@@ -10,6 +10,7 @@ namespace DAL.Models
         public int TournamentId { get; set; }
         public Tournament Tournament { get; set; }
         public int TeamId { get; set; }
+        public int Team2Id { get; set; }
         public Team Team { get; set; }
         public int StadiumId { get; set; }
         public Stadium Stadium { get; set; }

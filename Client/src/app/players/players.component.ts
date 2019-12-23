@@ -39,7 +39,7 @@ export class PlayersComponent implements OnInit {
     const player: Player = {
       id: 0,
       fullName: this.name,
-      teamId: 0,
+      teamId: this.teamId,
       bornDate: this.bornDate,
       contractDate: this.contractDate
     };

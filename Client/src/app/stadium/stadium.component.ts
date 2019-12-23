@@ -21,7 +21,8 @@ export class StadiumComponent implements OnInit {
 
   Send() {
     console.log(this.name + this.city + this.capacity);
-    const stadium: Stadium = {id: 0, name: this.name, city: this.city, Сapacity: this.capacity};
+    const stadium: Stadium = {id: 0, name: this.name, city: this.city, capacity: this.capacity};
+    console.log(this.capacity);
     this.stadiumService.AddStadium(stadium).subscribe(x => { });
   }
   applyFilter(filterValue: string) {
