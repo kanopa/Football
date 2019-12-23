@@ -9,5 +9,6 @@ namespace DAL.Interfaces
     public interface IPlayerRepository
     {
         Task<ICollection<Player>> GetPlayers();
+        Task<Player> AddPlayer(Player player);
     }
 }

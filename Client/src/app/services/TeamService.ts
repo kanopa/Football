@@ -19,4 +19,10 @@ export class TeamService {
         return this.http.get<Team[]>(this.baseUrl + this.routeTeam,
             {observe: 'response', headers: this.headers, params: httpParams});
     }
+    AddTeam(newPlayer: Team) {
+        const headers = new HttpHeaders().set('content-type', 'application/json');
+        return this.http.post<Team>(
+            this.baseUrl + this.routeTeam, newPlayer, {headers}
+        );
+    }
 }

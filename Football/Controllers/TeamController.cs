@@ -23,5 +23,10 @@ namespace Football.Controllers
         {
             return teamService.GetTeams();
         }
+        [HttpPost]
+        public Task<Team> AddTeam(Team team)
+        {
+            return teamService.AddTeam(team);
+        }
     }
 }

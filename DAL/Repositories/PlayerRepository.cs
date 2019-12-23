@@ -16,6 +16,14 @@ namespace DAL.Repositories
         {
             this.db = db;
         }
+
+        public async Task<Player> AddPlayer(Player player)
+        {
+            var newPlayer = await db.Players.AddAsync(player);
+            await db.SaveChangesAsync();
+            return newPlayer.Entity;
+        }
+
         public async Task<ICollection<Player>> GetPlayers()
         {
             return await db.Players.ToListAsync();

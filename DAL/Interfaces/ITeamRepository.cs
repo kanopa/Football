@@ -9,5 +9,6 @@ namespace DAL.Interfaces
     public interface ITeamRepository
     {
         Task<ICollection<Team>> GetTeams();
+        Task<Team> AddTeam(Team team);
     }
 }

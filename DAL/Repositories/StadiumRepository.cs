@@ -17,6 +17,13 @@ namespace DAL.Repositories
             this.db = db;
         }
 
+        public async Task<Stadium> AddStadium(Stadium stadium)
+        {
+            var newStadium = await db.Stadiums.AddAsync(stadium);
+            await db.SaveChangesAsync();
+            return newStadium.Entity;
+        }
+
         public async Task<ICollection<Stadium>> GetStadium()
         {
             return await db.Stadiums.ToListAsync();

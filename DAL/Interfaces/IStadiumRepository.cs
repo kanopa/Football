@@ -9,5 +9,6 @@ namespace DAL.Interfaces
     public interface IStadiumRepository
     {
         Task<ICollection<Stadium>> GetStadium();
+        Task<Stadium> AddStadium(Stadium stadium);
     }
 }

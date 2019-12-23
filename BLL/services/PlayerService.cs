@@ -15,6 +15,12 @@ namespace BLL.services
         {
             this.playerRepository = playerRepository;
         }
+
+        public async Task<Player> AddPlayer(Player player)
+        {
+            return await playerRepository.AddPlayer(player);
+        }
+
         public async Task<ICollection<Player>> GetPlayers()
         {
             return await playerRepository.GetPlayers();

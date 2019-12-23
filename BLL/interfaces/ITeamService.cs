@@ -9,5 +9,6 @@ namespace BLL.interfaces
     public interface ITeamService
     {
         Task<ICollection<Team>> GetTeams();
+        Task<Team> AddTeam(Team team);
     }
 }

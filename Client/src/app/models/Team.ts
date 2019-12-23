@@ -2,5 +2,5 @@ export interface Team {
     id: number;
     name: string;
     city: string;
-    countPlayer: number;
+    count: number;
 }

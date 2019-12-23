@@ -15,6 +15,12 @@ namespace BLL.services
         {
             this.teamRepository = teamRepository;
         }
+
+        public async Task<Team> AddTeam(Team team)
+        {
+            return await teamRepository.AddTeam(team);
+        }
+
         public async Task<ICollection<Team>> GetTeams()
         {
             return await teamRepository.GetTeams();

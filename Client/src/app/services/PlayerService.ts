@@ -18,4 +18,10 @@ export class PlayerService {
         return this.http.get<Player[]>(this.baseUrl + this.routePlayer,
             {observe: 'response', headers: this.headers, params: httpParams});
     }
+    AddPlayer(newPlayer: Player) {
+        const headers = new HttpHeaders().set('content-type', 'application/json');
+        return this.http.post<Player>(
+            this.baseUrl + this.routePlayer, newPlayer, {headers}
+        );
+    }
 }

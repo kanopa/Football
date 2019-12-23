@@ -17,6 +17,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
+import { StadiumComponent } from './stadium/stadium.component';
 
 
 const appRoutes = [
@@ -24,6 +25,7 @@ const appRoutes = [
   {path: 'teams', component: TeamsComponent},
   {path: 'players', component: PlayersComponent},
   {path: 'main', component: MainComponent},
+  {path: 'stadium', component: StadiumComponent},
   {path: '',   redirectTo: '/main', pathMatch: 'full' }
 ];
 
@@ -33,7 +35,8 @@ const appRoutes = [
     MatchesComponent,
     TeamsComponent,
     PlayersComponent,
-    MainComponent
+    MainComponent,
+    StadiumComponent
   ],
   imports: [
     BrowserModule,

@@ -9,5 +9,6 @@ namespace BLL.interfaces
     public interface IStadiumService
     {
         Task<ICollection<Stadium>> GetStadium();
+        Task<Stadium> AddStadium(Stadium stadium);
     }
 }

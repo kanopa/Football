@@ -9,5 +9,6 @@ namespace BLL.interfaces
     public interface IPlayerService
     {
         Task<ICollection<Player>> GetPlayers();
+        Task<Player> AddPlayer(Player player);
     }
 }

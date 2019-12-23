@@ -16,6 +16,12 @@ namespace BLL.services
         {
             this.stadiumRepository = stadiumRepository;
         }
+
+        public async Task<Stadium> AddStadium(Stadium stadium)
+        {
+            return await stadiumRepository.AddStadium(stadium);
+        }
+
         public async Task<ICollection<Stadium>> GetStadium()
         {
             return await stadiumRepository.GetStadium();
