@@ -25,4 +25,8 @@ export class TeamService {
             this.baseUrl + this.routeTeam, newPlayer, {headers}
         );
     }
+    UpdateTeam(id: number, httpParams?: any) {
+        return this.http.put<Team[]>(this.baseUrl + this.routeTeam + `/${id}`,
+            {observe: 'response', headers: this.headers, params: httpParams});
+    }
 }

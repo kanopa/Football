@@ -44,6 +44,7 @@ export class PlayersComponent implements OnInit {
       contractDate: this.contractDate
     };
     this.playerService.AddPlayer(player).subscribe(x => console.log(x));
+    this.teamService.UpdateTeam(this.teamId).subscribe(x => x);
   }
   ngOnInit() {
     $('#example1').calendar({

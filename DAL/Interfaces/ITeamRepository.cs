@@ -10,6 +10,6 @@ namespace DAL.Interfaces
     {
         Task<ICollection<Team>> GetTeams();
         Task<Team> AddTeam(Team team);
-        Task UpdateTeam(Team team);
+        Task UpdateTeam(int id);
     }
 }

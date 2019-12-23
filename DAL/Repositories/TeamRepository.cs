@@ -29,9 +29,12 @@ namespace DAL.Repositories
             return await db.Teams.ToListAsync();
         }
 
-        public async Task UpdateTeam(Team team)
+        public async Task UpdateTeam(int id)
         {
-            db.Update(team);
+            var find = await db.Teams.FirstOrDefaultAsync(x => x.Id == id);
+            if (find != null)
+                find.CountPlayers++;
+            db.Update(find);
             await db.SaveChangesAsync();
         }
     }

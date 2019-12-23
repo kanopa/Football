@@ -28,6 +28,11 @@ namespace Football.Controllers
         {
             return teamService.AddTeam(team);
         }
-        //[HttpPut]
+        [HttpPut("{id}")]
+        public async Task UpdateTeam(int id)
+        {
+            await teamService.UpdateTeam(id);
+        }
+
     }
 }
